@@ -24,7 +24,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
-
 import java.text.Collator;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -32,13 +31,16 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import com.microsoft.appcenter.AppCenter;
+import com.microsoft.appcenter.analytics.Analytics;
+import com.microsoft.appcenter.crashes.Crashes;
 
 public class ApiDemos extends ListActivity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        
+        AppCenter.start(getApplication(), "06d2d24b-a478-44b3-b7d1-193777b14c3a", Analytics.class, Crashes.class);
         Intent intent = getIntent();
         String path = intent.getStringExtra("com.example.android.apis.Path");
         
